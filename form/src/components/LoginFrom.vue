@@ -4,26 +4,29 @@
   
   <div class="login">
 
-<label for="chk" class="log">Login</label>
+<label for="chk" class="log">ورود</label>
 
 
 
 <div class="user-box">
 
-    <input type="text" title="Enter Username" id="username2" required>
+    <input v-model="userIdentity" type="text" title="نام کاربری/ایمیل/تلفن" id="username2" required>
 
-    <label>Username</label>
+    <label>نام کاربری/ایمیل/تلفن</label>
 
 </div>
 
 <div class="user-box">
 
-    <input type="password" title="Enter password" id="password2" required>
+    <input v-model="password" type="password" title="رمز عبور" id="password2" required>
 
-    <label>Password</label>
+    <label>رمز عبور</label>
 
 </div>
-<button onclick="login()" id="button2">ورود</button>
+<div class="user-box">
+     <a href="#">فراموشی رمز عبور</a>
+</div>
+<button @click="login()" id="button2">ورود</button>
 
 </div>
 
@@ -31,7 +34,18 @@
 
 <script>
 export default {
-
+data() {
+  return {
+    userIdentity:"",
+    password:"",
+  }
+},
+methods: {
+  login(){
+    console.log(this.userIdentity);
+    console.log(this.password);
+  }
+},
 }
 </script>
 

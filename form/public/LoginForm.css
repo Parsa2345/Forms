@@ -185,6 +185,47 @@
       background: transparent;
   }
   
+  .user-box select {
+      padding: 10px 0px;
+      padding-right: 17px;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: transparent;
+  }
+  .user-box a {
+      padding: 10px 0px;
+      padding-right: 17px;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+      color: #034d34;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: transparent;
+  }
+  .user-box option {
+       text-align: right;
+      box-sizing: border-box;
+      font-size: 16px;
+      color:inherit;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: transparent;
+      background-color:  #024631;
+  }
+  
+
+  
   .user-box input:focus~label,
   .user-box input:valid~label {
       top: -20px;
