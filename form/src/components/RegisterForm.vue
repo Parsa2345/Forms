@@ -1,6 +1,6 @@
 
 <template>
-    <div class="signup">
+    <div class="signup" style="overflow:scroll">
         <label for="chk" class="sig">ثبت نام</label>
         <div class="row ">
             <div class="col-12 col-lg-6 col-md-6">
@@ -74,7 +74,16 @@
                 </div>
             </div>
             <div class="col-md-6">
-
+                <p></p>
+                <p></p>
+            </div>
+            <div class="col-md-6">
+                <p></p>
+                <p></p>
+            </div>
+            <div class="col-md-6">
+                <p></p>
+                <p></p>
             </div>
         </div>
         <div>
@@ -106,27 +115,27 @@ export default {
     methods: {
         register() {
 
-            if(this.validations()){ 
+            if (this.validations()) {
 
-            
-            console.log(this.validations);
-            console.log(this.userName);
-            console.log(this.password);
-            console.log(this.confirmPassword);
-            console.log(this.email);
-            console.log(this.gender);
-            console.log(this.role);
-            console.log(this.phoneNumber);
-        }
+
+                console.log(this.validations);
+                console.log(this.userName);
+                console.log(this.password);
+                console.log(this.confirmPassword);
+                console.log(this.email);
+                console.log(this.gender);
+                console.log(this.role);
+                console.log(this.phoneNumber);
+            }
         },
         validations() {
 
             if (validateEmail(this.email) != true) {
-                this.$toast.error(" ایمیل مورد تایید نمی باشد"); 
+                this.$toast.error(" ایمیل مورد تایید نمی باشد");
                 return false;
             }
             if (!this.phoneNumber) {
-                this.$toast.error("شماره تلفن مورد تایید نمی باشد"); 
+                this.$toast.error("شماره تلفن مورد تایید نمی باشد");
                 return false;
             }
             else if (!this.userName) {
@@ -154,7 +163,7 @@ export default {
                 return false;
 
             }
-            else{
+            else {
                 return true;
             }
 

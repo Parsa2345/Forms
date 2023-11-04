@@ -7,15 +7,19 @@
 
     <Form @submit="login">
       <div class="user-box">
-         <Field name="userIdentity"  type="email" :rules="validateEmail" />
-             
-     <p class="text-danger"><ErrorMessage name="userIdentity" /></p> 
-    </div>
+        <Field name="userIdentity" type="email" :rules="emailRule" />
+
+        <p class="text-danger">
+          <ErrorMessage name="userIdentity" />
+        </p>
+      </div>
       <div class="user-box">
-         <Field name="myPassword" type="password" :rules="validatePassword" />
-             
-     <p class="text-danger"><ErrorMessage name="myPassword" /></p> 
-    </div>
+        <Field name="myPassword" type="password" :rules="passwordRule" />
+
+        <p class="text-danger">
+          <ErrorMessage name="myPassword" />
+        </p>
+      </div>
       <button>Sign up</button>
     </Form>
 
@@ -38,15 +42,16 @@
     </div>
     <button @click="login()" id="button2">ورود</button>
 -->
-  </div> 
+  </div>
 </template>
 
 <script>
 
-import {  Form,Field, ErrorMessage } from 'vee-validate';
+import { Form, Field, ErrorMessage } from 'vee-validate';
+import * as yup from 'yup';
 export default {
   components: {
-     Form,
+    Form,
     Field,
     ErrorMessage,
   },
@@ -54,6 +59,8 @@ export default {
     return {
       userIdentity: "",
       myPassword: "",
+      emailRule: yup.string().required("لطفا ایمیل را وارد نمایید").email('ایمیل مورد تایید نمی باشد'),
+      passwordRule: yup.string().required("لطفا رمزعبور را وارد نمایید").min(8,"رمز عبور حداقل 8 کارکتر می باشد"),
     }
   },
   methods: {
@@ -64,7 +71,7 @@ export default {
     //   // console.log(this.password);
     // },
     validateEmail(value) {
-      
+
       console.log(value);
       // if the field is empty
       if (!value) {
@@ -80,12 +87,12 @@ export default {
       // All is good
       return true;
     },
-    validatePassword(value){
+    validatePassword(value) {
       console.log(value);
       if (!value) {
         return "لطفا رمزعبور را وارد نمایید";
       }
-      if (value.length<8) {
+      if (value.length < 8) {
         return "رمز عبور حداقل 8 کارکتر می باشد";
       }
       // All is good
