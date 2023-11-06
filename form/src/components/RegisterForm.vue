@@ -371,7 +371,7 @@ formData:{
         register() {
 
             // if (this.validations()) {
-
+   
 
             //     console.log(this.validations);
             //     console.log(this.userName);
