@@ -5,7 +5,27 @@
 
     <label for="chk" class="log">ورود</label>
 
-    <Form @submit="login">
+    <Form @submit="login" :validation-schema="loginFormSchema" >
+      <div class="user-box">
+        <Field name="emailRule" type="email" :rules="emailRule" :validate-on-Input="true"/>
+
+        <p class="text-danger">
+          <ErrorMessage name="emailRule" />
+        </p>
+      </div>
+      <div class="user-box">
+        <Field name="passwordRule" type="password" :rules="passwordRule" :validate-on-Input="true"/>
+
+        <p class="text-danger">
+          <ErrorMessage name="passwordRule" />
+        </p>
+      </div>
+      <button>ورود</button>
+    </Form>
+
+
+
+    <!-- <Form @submit="login">
       <div class="user-box">
         <Field name="userIdentity" type="email" :rules="emailRule" />
 
@@ -21,7 +41,7 @@
         </p>
       </div>
       <button>Sign up</button>
-    </Form>
+    </Form> -->
 
     <!-- <div class="user-box">
 
@@ -56,11 +76,17 @@ export default {
     ErrorMessage,
   },
   data() {
-    return {
-      userIdentity: "",
-      myPassword: "",
+    const loginFormSchema = yup.object({
       emailRule: yup.string().required("لطفا ایمیل را وارد نمایید").email('ایمیل مورد تایید نمی باشد'),
-      passwordRule: yup.string().required("لطفا رمزعبور را وارد نمایید").min(8,"رمز عبور حداقل 8 کارکتر می باشد"),
+      passwordRule: yup.string().required("لطفا رمزعبور را وارد نمایید").min(8, "رمز عبور حداقل 8 کارکتر می باشد"),
+
+    });
+    return {
+      loginFormSchema,
+      // userIdentity: "",
+      // myPassword: "",
+      // emailRule: yup.string().required("لطفا ایمیل را وارد نمایید").email('ایمیل مورد تایید نمی باشد'),
+      // passwordRule: yup.string().required("لطفا رمزعبور را وارد نمایید").min(8,"رمز عبور حداقل 8 کارکتر می باشد"),
     }
   },
   methods: {
